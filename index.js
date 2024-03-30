@@ -1,7 +1,9 @@
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+const authRoutes = require('./auth.routes'); 
 
-app.get('/', (req, res) => res.send('Hello World!'));
+const app = express();
+const port = process.env.PORT;
+
+app.use('/', authRoutes); // This line registers your routes with the Express application
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
